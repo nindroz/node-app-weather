@@ -1,4 +1,5 @@
 const express = require('express')
+const config = require("./config.js")
 const bp = require("body-parser")
 const http = require("http")
 const app = express()
@@ -10,10 +11,9 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-    res.render("index")
-    console.log(req.body.city);
-    let link = `http://api.openweathermap.org/data/2.5/weather?q=${req.body.city}&appid=f1f0372cfb624d7efa68dd0085a220d4`
+    res.render("index") 
     
+    let link = `http://api.openweathermap.org/data/2.5/weather?q=${req.body.city}&appid=${config.config.MY_KEY}`
     http.get(link, (resp) => {
         let data = ''
         resp.on('data', (chunk) =>{
