@@ -2,7 +2,6 @@ const express = require('express')
 const axios = require('axios')
 const config = require("./config.js")
 const bp = require("body-parser")
-const http = require("http")
 const app = express()
 const port = 3000
 app.use(bp.urlencoded({extended : true}));
